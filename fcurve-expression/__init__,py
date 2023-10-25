@@ -1,0 +1,28 @@
+import bpy
+
+from .operator import ExpressionModifier
+
+bl_info = {
+    "name": "FCurve Expression",
+    "description": "Blender addon for allowing expression in F-curve modifier",
+    "author": "Aodaruma",
+    "version": (0, 0, 1),
+    "blender": (3, 6, 2),
+    "category": "Animation",
+    "location": "Graph Editor > Properties > Modifiers > Add Modifier > FCurve Expression",
+}
+
+classes = [
+    ExpressionModifier
+]
+
+def register():
+    for cls in classes:
+        bpy.utils.register_class(cls)
+
+def unregister():
+    for cls in classes:
+        bpy.utils.unregister_class(cls)
+
+if __name__ == "__main__":
+    register()
